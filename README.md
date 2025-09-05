@@ -37,5 +37,7 @@ coding!
 - Zephyr Koryami (Sokuen Ryan) [GitHub](https://github.com/sokuenryan) / [LinkedIn](https://linkedin.com/in/sokuenryan)
 - Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Sarah Obi: [GitHub] (https://github.com/soprettypink) / [LinkedIn] https://www.linkedin.com/in/prettypinkdesigns/
+
+- Nandhini Ravichandran: [GitHub](https://github.com/Nandhini0123) / [LinkedIn](https://www.linkedin.com/in/nan-ravi/)
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
