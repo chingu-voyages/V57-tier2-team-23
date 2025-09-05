@@ -1,0 +1,25 @@
+{
+  "name": "v57-tier2-team-23",
+  "version": "1.0.0",
+  "description": "Your project's `readme` is as important to success as your code. For \r this reason you should put as much care into its creation and maintenance\r as you would any other component of the application.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyages/V57-tier2-team-23.git"
+  },
+  "author": "'Zephyrus <'sokuenryan@gmail.com'>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chingu-voyages/V57-tier2-team-23/issues"
+  },
+  "homepage": "https://github.com/chingu-voyages/V57-tier2-team-23#readme",
+  "dependencies": {
+    "vite": "^7.1.4"
+  }
+}
