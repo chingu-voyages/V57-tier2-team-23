@@ -1,25 +1,27 @@
 {
-  "name": "v57-tier2-team-23",
-  "version": "1.0.0",
-  "description": "Your project's `readme` is as important to success as your code. For \r this reason you should put as much care into its creation and maintenance\r as you would any other component of the application.",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "name": "pr-status-board",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chingu-voyages/V57-tier2-team-23.git"
-  },
-  "author": "'Zephyrus <'sokuenryan@gmail.com'>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chingu-voyages/V57-tier2-team-23/issues"
-  },
-  "homepage": "https://github.com/chingu-voyages/V57-tier2-team-23#readme",
   "dependencies": {
-    "vite": "^7.1.4"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "vite": "^7.1.2"
   }
 }
