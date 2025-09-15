@@ -39,3 +39,4 @@ coding!
 - Sarah Obi: [GitHub] (https://github.com/soprettypink) / [LinkedIn] https://www.linkedin.com/in/prettypinkdesigns/
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Emad Faheem [GitHub](https://github.com/emadgfy) / [LinkedIn](https://linkedin.com/in/emadfaheem)
