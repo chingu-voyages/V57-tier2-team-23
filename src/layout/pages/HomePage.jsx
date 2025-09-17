@@ -6,7 +6,7 @@ const HomePage = () => {
       <h1>PR Status Board</h1>
       <div className="flex justify-center flex-col">
         <Button className="bg-gray-500 hover:cursor-pointer">
-          Get Started
+          Get Started!
         </Button>
       </div>
     </div>
