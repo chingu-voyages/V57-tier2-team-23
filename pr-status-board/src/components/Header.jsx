@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Header = () => {
+// THIS COMPONENT IS NOT IN USE CURRENTLY :D 
 
     const handleHomeRedirect = () => {
         window.location.href = '/';

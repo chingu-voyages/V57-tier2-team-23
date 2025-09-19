@@ -39,4 +39,4 @@ coding!
 - Sarah Obi: [GitHub](https://github.com/soprettypink) / [LinkedIn](https://www.linkedin.com/in/prettypinkdesigns/)
 - Francisco Cuevas [GitHub](https://github.com/fcuevas6) / [LinkedIn](https://www.linkedin.com/in/francisco-cuevas-designer/)
 - Nandhini Ravichandran: [GitHub](https://github.com/Nandhini0123) / [LinkedIn](https://www.linkedin.com/in/nan-ravi/)
-
+- Emad Faheem [GitHub](https://github.com/emadgfy) / [LinkedIn](https://linkedin.com/in/emadfaheem)
