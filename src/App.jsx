@@ -1,15 +1,31 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router";
-import HomePage from "./layout/pages/HomePage";
-import Layout from "./layout/pages/Layout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-function App({children}) {
+//Pages
+import HomePage from "./pages/HomePage";
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+
+const router = createBrowserRouter([
+    {
+      path:'/',
+      element: (
+        <>
+          <Header />
+          <HomePage />
+          <Footer />
+        </>
+      ),
+    },
+]);
+
+function App() {
 
   return (
-    <Layout>
-      <HomePage />
-    </Layout>
-  );
+    <div className='App'>
+        <RouterProvider router={router} />
+    </div>
+  );  
 }
 
 export default App;
