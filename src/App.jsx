@@ -10,11 +10,11 @@ const router = createBrowserRouter([
     {
       path:'/',
       element: (
-        <>
+        <div className="h-screen flex flex-col overflow-y-hidden">
           <Header />
           <HomePage />
           <Footer />
-        </>
+        </div>
       ),
     },
 ]);
