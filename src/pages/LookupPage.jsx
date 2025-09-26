@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Download, RefreshCw, Upload } from "lucide-react";
-
+import  PRCard  from "../components/PRCard";
 const LookupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState({ owner: "", repo: "" });
@@ -62,6 +62,15 @@ const LookupPage = () => {
             <Download className="h-4 w-4" />
             Download JSON
           </Button>
+          </div>
+        <div>
+          <PRCard
+            title="Sample PR Title"
+            prNum={12}
+            owner="John Doe"
+            assignees={["Jane Smith", "Bob Johnson"]}
+            lastAction="Approved by Jane Smith"
+          />
         </div>
       </div>
     </div>
