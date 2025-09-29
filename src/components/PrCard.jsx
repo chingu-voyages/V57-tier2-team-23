@@ -19,7 +19,7 @@ const PRCard = ({ pr }) => {
       <CardHeader className="flex justify-between mb-2">
         <CardTitle className="flex items-center  gap-2">
           <GitPullRequestArrow className="stroke-green-400" />
-          <a href={pr.html_url} className="hover:text-[#58A6FF] transition-all duration-150">{pr.title}</a>
+          <a href={pr.html_url} target="_blank" rel="noopener noreferrer" className="hover:text-[#58A6FF] transition-all duration-150">{pr.title}</a>
         </CardTitle>
         <CardDescription>#{pr.number}</CardDescription>
       </CardHeader>
