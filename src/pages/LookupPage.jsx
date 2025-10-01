@@ -30,10 +30,22 @@ const LookupPage = () => {
     try {
       const [openPRs, closedPRs] = await Promise.all([
         fetch(
-          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=open`
+          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=open`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_GITHUB_PAT}`,
+              Accept: "application/vnd.github.v3+json",
+            },
+          }
         ),
         fetch(
-          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=closed`
+          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=closed`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_GITHUB_PAT}`,
+              Accept: "application/vnd.github.v3+json",
+            },
+          }
         ),
       ]);
 
@@ -111,7 +123,6 @@ const LookupPage = () => {
     e.target.value = "";
   };
 
-  
   // Triggers the hidden file input click
   const triggerFileInput = () => {
     fileInputRef.current?.click();
