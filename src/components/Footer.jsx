@@ -1,16 +1,15 @@
 import React from "react";
-import GitHubLogo from "../assets/images/github.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const teamMembers = [
-    { name: "Zephyrus Koryami (Sokuen Ryan)", github: "https://github.com/sokuenryan" },
-    { name: "Sarah Obi", github: "https://github.com/soprettypink" },
-    { name: "Koby Sysouvanh", github: "https://github.com/kobysysouvanh" },
-    { name: "Francisco Cuevas", github: "https://github.com/fcuevas6" },
-    { name: "Nandhini Ravichandran", github: "https://github.com/Nandhini0123" },
-    { name: "Emad Faheem", github: "https://github.com/emadgfy" },
+    { avatar: "https://www.github.com/sokuenryan.png", name: "Zephyrus Koryami (Sokuen Ryan)", github: "https://github.com/sokuenryan" },
+    { avatar: "https://www.github.com/soprettypink.png", name: "Sarah Obi", github: "https://github.com/soprettypink" },
+    { avatar: "https://www.github.com/kobysysouvanh.png", name: "Koby Sysouvanh", github: "https://github.com/kobysysouvanh" },
+    { avatar: "https://www.github.com/fcuevas6.png", name: "Francisco Cuevas", github: "https://github.com/fcuevas6" },
+    { avatar: "https://www.github.com/Nandhini0123.png", name: "Nandhini Ravichandran", github: "https://github.com/Nandhini0123" },
+    { avatar: "https://www.github.com/emadgfy.png", name: "Emad Faheem", github: "https://github.com/emadgfy" },
   ];
 
   const handleTitleClick = () => {
@@ -19,13 +18,6 @@ const Footer = () => {
 
   return (
     <footer className="w-full p-4 bg-gray-400 text-white text-center">
-      <button
-        onClick={handleTitleClick}
-        className="text-lg font-bold border w-80 hover:bg-gray-500 mb-4"
-      >
-        Voyage 57 Tier2 Team23
-      </button>
-
       <div className="flex justify-center flex-wrap gap-6 mb-4">
         {teamMembers.map((member) => (
           <a
@@ -35,8 +27,10 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-1 hover:underline"
           >
-            <img src={GitHubLogo} alt="GitHub Logo" className="h-5" />
+          <div className="flex flex-col items-center">
+            <img src={member.avatar} alt="Member Avatar" className="h-10" />
             <span>{member.name}</span>
+          </div>
           </a>
         ))}
       </div>
