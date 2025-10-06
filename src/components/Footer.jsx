@@ -1,13 +1,8 @@
 import React from "react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const handleRepoTransition = () => {
-    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
-  };
-
   const teamMembers = [
-    { avatar: "https://www.github.com/sokuenryan.png", name: "Zephyrus Koryami (Sokuen Ryan)", github: "https://github.com/sokuenryan" },
+    { avatar: "https://www.github.com/sokuenryan.png", name: "Sokuen Ryan", github: "https://github.com/sokuenryan" },
     { avatar: "https://www.github.com/soprettypink.png", name: "Sarah Obi", github: "https://github.com/soprettypink" },
     { avatar: "https://www.github.com/kobysysouvanh.png", name: "Koby Sysouvanh", github: "https://github.com/kobysysouvanh" },
     { avatar: "https://www.github.com/fcuevas6.png", name: "Francisco Cuevas", github: "https://github.com/fcuevas6" },
@@ -15,15 +10,8 @@ const Footer = () => {
     { avatar: "https://www.github.com/emadgfy.png", name: "Emad Faheem", github: "https://github.com/emadgfy" },
   ];
 
-  const handleTitleClick = () => {
-    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
-  };
-
   return (
-    <footer className="w-full p-4 bg-gray-400 text-white text-center">
-      <div className="flex flex-row w-full justify-center items-center gap-4 font-bold">
-        <p>Meet the Chingu Team</p>
-      </div>
+    <footer className="w-full p-4 text-black text-center">
 
       <div className="flex justify-center flex-wrap gap-6 mt-4">
         {teamMembers.map((member) => (
