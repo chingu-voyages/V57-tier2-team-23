@@ -2,6 +2,9 @@ import React from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const handleRepoTransition = () => {
+    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
+  };
 
   const teamMembers = [
     { avatar: "https://www.github.com/sokuenryan.png", name: "Zephyrus Koryami (Sokuen Ryan)", github: "https://github.com/sokuenryan" },
@@ -35,7 +38,13 @@ const Footer = () => {
         ))}
       </div>
 
-      <p>&copy; {currentYear} PR Status Board. All rights reserved.</p>
+      <div className="flex flex-row w-full justify-center items-center gap-4 font-bold">
+        <p>&copy; {currentYear} PR Status Board</p>
+        <button className="w-50 hover:text-gray-700" onClick={handleRepoTransition}>
+          V57 Tier2 Team23 Repo
+        </button>
+        <p>All rights reserved</p>
+      </div>
     </footer>
   );
 };
