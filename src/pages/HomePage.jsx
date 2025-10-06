@@ -3,6 +3,10 @@ import HomeImage from "../assets/images/home_image.png";
 import GitHubLogo from "../assets/images/github.png";
 
 const HomePage = () => {
+  const handleRepoLink = () => {
+    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
+  }
+
   return (
     <div className="w-full h-screen flex justify-center items-center flex-col">
       <div className="flex justify-center flex-col">
@@ -21,7 +25,7 @@ const HomePage = () => {
         </div>
 
         <div className="w-full flex justify-center">
-          <button className="h-15 w-15 mt-10 hover:cursor-pointer">
+          <button className="h-15 w-15 mt-10 hover:cursor-pointer" onClick={handleRepoLink}>
             <img src={GitHubLogo} alt="GitHub Logo"/>
           </button>
         </div>
