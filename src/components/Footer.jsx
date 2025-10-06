@@ -1,10 +1,6 @@
 import React from "react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  const handleRepoTransition = () => {
-    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
-  };
 
   const teamMembers = [
     { avatar: "https://www.github.com/sokuenryan.png", name: "Zephyrus Koryami (Sokuen Ryan)", github: "https://github.com/sokuenryan" },
@@ -15,12 +11,8 @@ const Footer = () => {
     { avatar: "https://www.github.com/emadgfy.png", name: "Emad Faheem", github: "https://github.com/emadgfy" },
   ];
 
-  const handleTitleClick = () => {
-    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
-  };
-
   return (
-    <footer className="w-full p-4 bg-gray-400 text-white text-center">
+    <footer className="w-full bg-gray-400 text-white text-center">
       <div className="flex flex-row w-full justify-center items-center gap-4 font-bold">
         <p>Meet the Chingu Team</p>
       </div>

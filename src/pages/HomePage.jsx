@@ -8,7 +8,7 @@ const HomePage = () => {
   }
 
   return (
-    <div className="w-full h-screen flex justify-center items-center flex-col mb-15">
+    <div className="w-full h-screen flex justify-center items-center flex-col">
       <div className="flex justify-center flex-col">
         <img src={HomeImage} alt="Home" className="w-96 h-60" />
         <p className="text-center mb-4">
@@ -24,7 +24,7 @@ const HomePage = () => {
           </Button>
         </div>
 
-        <div className="w-full flex justify-center">
+        <div className="w-full h-20 mt-5 mb-5 flex justify-center items-center">
           <button className="h-15 w-15 mt-10 hover:cursor-pointer" onClick={handleRepoLink}>
             <img src={GitHubLogo} alt="GitHub Logo"/>
           </button>
