@@ -20,10 +20,10 @@ const HomePage = () => {
           </Button>
         </div>
 
-        <div>
-          <buttn>
-            <img src={GitHubLogo} alt="GitHub Logo" className="w-6 h-6 mt-4 mx-auto hover:cursor-pointer" />
-          </buttn>
+        <div className="w-full flex justify-center">
+          <button className="h-15 w-15 mt-10 hover:cursor-pointer">
+            <img src={GitHubLogo} alt="GitHub Logo"/>
+          </button>
         </div>
       </div>
     </div>
