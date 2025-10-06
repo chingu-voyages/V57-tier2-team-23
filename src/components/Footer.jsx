@@ -21,7 +21,11 @@ const Footer = () => {
 
   return (
     <footer className="w-full p-4 bg-gray-400 text-white text-center">
-      <div className="flex justify-center flex-wrap gap-6 mb-4">
+      <div className="flex flex-row w-full justify-center items-center gap-4 font-bold">
+        <p>Meet the Chingu Team</p>
+      </div>
+
+      <div className="flex justify-center flex-wrap gap-6 mt-4">
         {teamMembers.map((member) => (
           <a
             key={member.name}
@@ -36,14 +40,6 @@ const Footer = () => {
           </div>
           </a>
         ))}
-      </div>
-
-      <div className="flex flex-row w-full justify-center items-center gap-4 font-bold">
-        <p>&copy; {currentYear} PR Status Board</p>
-        <button className="w-50 hover:text-gray-700" onClick={handleRepoTransition}>
-          V57 Tier2 Team23 Repo
-        </button>
-        <p>All rights reserved</p>
       </div>
     </footer>
   );
