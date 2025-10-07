@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardHeader,
@@ -15,7 +15,58 @@ import {
   CheckCheck,
 } from "lucide-react";
 
-const PRCard = ({ pr }) => {
+const PRCard = ({ pr, repo }) => {
+  const token = "" // Add your GitHub token here
+  const [eventData, setEventData] = useState([])
+
+  useEffect(() => {
+
+    if (pr.state === "open") {
+
+      const fetchTimelineEvent = async () => {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}/issues/${pr.number}/timeline`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "application/vnd.github.v3+json"
+          }
+        }
+        )
+
+        if (!response.ok) {
+           throw new Error(`Failed to fetch timeline events: ${response.status}`)
+        }
+
+        const data = await response.json()
+
+        setEventData((prev) => [...prev, {pr: pr.number, data: data}])
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    fetchTimelineEvent();
+
+    }
+
+  }, [pr.number]);
+
+  // Function to get the last person to act on the PR
+  const getLastPersonToAct = (eventsData) => {
+    if (!eventsData || eventsData.length === 0) return null;
+
+    const lastEvent = eventData[0]?.data?.at(-1)
+    if (!lastEvent) return null;
+
+    const person = lastEvent.actor || lastEvent.user || lastEvent.author
+    return person?.login || null;
+  }
+  const lastPersonToAct = getLastPersonToAct(eventData);
+
+  // Get last event in timeline and its date
+  const lastEvent = eventData.length > 0 ? eventData.at(0).data.at(-1).event : null
+  const lastEventDate = eventData.length > 0 ? eventData.at(0).data.at(-1).created_at : null
+
   return (
     <Card className="w-full p-4 mb-4 shadow-lg border border-gray-200 rounded-lg">
       <CardHeader className="flex justify-between">
@@ -71,11 +122,15 @@ const PRCard = ({ pr }) => {
           {/* Display last action */}
           Last Action:
           {
-            pr.state === 'closed' && pr.merged_at
+            pr.state === 'open'
+            ? `${lastEvent ? `
+              ${lastEvent.charAt(0).toUpperCase() + lastEvent.slice(1).replace('_', ' ')} by ${lastPersonToAct} on ${new Date(lastEventDate).toLocaleDateString()}` 
+              : ' No actions recorded'}`
+            : pr.state === 'closed' && pr.merged_at
             ? ` Merged on ${new Date(pr.merged_at).toLocaleDateString()}`
             : pr.state === 'closed'
             ? ` Closed on ${new Date(pr.closed_at).toLocaleDateString()}`
-            : ` Last updated on ${new Date(pr.updated_at).toLocaleDateString()}`  
+            : ` Last updated on ${new Date(pr.updated_at).toLocaleDateString()}`
           }
         </CardDescription>
       </CardContent>

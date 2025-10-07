@@ -13,7 +13,7 @@ const LookupPage = () => {
 
   const fileInputRef = React.useRef(null);
 
-  const openPRs = prData.filter((pr) => pr.state === "open");
+  const openPRs = prData.filter((pr) => pr.state === "open")
   const closedPRs = prData.filter((pr) => pr.state === "closed");
 
   // Handles Fetching PR Data from GitHub API when clicked
@@ -48,12 +48,12 @@ const LookupPage = () => {
 
       toast.success("PRs fetched successfully!");
 
-      console.log(prData);
     } catch (error) {
       console.error("Error fetching PRs:", error);
       toast.error("An error occurred while fetching PRs.");
     } finally {
       setIsLoading(false);
+      console.log(prData);
     }
   };
 
@@ -177,7 +177,7 @@ const LookupPage = () => {
         <div>
           {/* PR Cards Display */}
           {prData.map((pr) => (
-            <PrCard key={pr.id} pr={pr} />
+            <PrCard key={pr.id} pr={pr} repo={repo} />
           ))}
         </div>
       </div>
