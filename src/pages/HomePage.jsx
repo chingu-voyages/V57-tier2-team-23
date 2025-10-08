@@ -1,5 +1,6 @@
 import { Button } from "../components/ui/button";
 import HomeImage from "../assets/images/home_image.png";
+import { Link } from "react-router";
 
 const HomePage = () => {
   return (
@@ -13,9 +14,11 @@ const HomePage = () => {
             <span className="font-bold"> your team’s GitHub repos.</span>
           </p>
         <div className="w-full flex justify-center">
-          <Button className="bg-green-500 hover:cursor-pointer w-40">
-            Get Started!
-          </Button>
+          <Link to="/lookup">
+            <Button className="bg-green-500 hover:cursor-pointer w-40">
+              Get Started!
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
