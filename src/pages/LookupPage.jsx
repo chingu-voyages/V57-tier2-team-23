@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Download, RefreshCw, Upload } from "lucide-react";
 import  PRCard  from "../components/PRCard";
+import PRTabs from "@/components/PRTabs";
+
 const LookupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [repo, setRepo] = useState({ owner: "", repo: "" });
@@ -63,7 +65,7 @@ const LookupPage = () => {
             Download JSON
           </Button>
           </div>
-        <div>
+        {/*  <div>
           <PRCard
             title="Sample PR Title"
             prNum={12}
@@ -71,7 +73,22 @@ const LookupPage = () => {
             assignees={["Jane Smith", "Bob Johnson"]}
             lastAction="Approved by Jane Smith"
           />
-        </div>
+        </div> */}
+        <div className="mt-6">
+  <div className="mt-6">
+  <h2 className="text-xl font-semibold mb-2">Pull Requests</h2>
+  <PRTabs
+    openPRs={[
+      { id: 1, title: "Sample PR Title 1", prNum: 12, owner: "John Doe", assignees: ["Jane Smith", "Bob Johnson"], lastAction: "Approved by Jane Smith" },
+      { id: 2, title: "Sample PR Title 2", prNum: 15, owner: "Alice Brown", assignees: ["Tom Lee", "Emma White"], lastAction: "Requested changes by Tom Lee" },
+    ]}
+    closedPRs={[
+      { id: 3, title: "Sample PR Title 3", prNum: 8, owner: "Mark Green", assignees: ["Lucy Black"], lastAction: "Merged by Lucy Black" },
+    ]}
+  />
+</div>
+
+</div>
       </div>
     </div>
   );
