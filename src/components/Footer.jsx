@@ -1,7 +1,6 @@
 import React from "react";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
 
   const teamMembers = [
     { avatar: "https://www.github.com/sokuenryan.png", name: "Zephyrus Koryami (Sokuen Ryan)", github: "https://github.com/sokuenryan" },
@@ -12,13 +11,13 @@ const Footer = () => {
     { avatar: "https://www.github.com/emadgfy.png", name: "Emad Faheem", github: "https://github.com/emadgfy" },
   ];
 
-  const handleTitleClick = () => {
-    window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
-  };
-
   return (
-    <footer className="w-full p-4 bg-gray-400 text-white text-center">
-      <div className="flex justify-center flex-wrap gap-6 mb-4">
+    <footer className="w-full bg-gray-400 text-white text-center">
+      <div className="flex flex-row w-full justify-center items-center gap-4 font-bold">
+        <p>Meet the Chingu Team</p>
+      </div>
+
+      <div className="flex justify-center flex-wrap gap-6 mt-4">
         {teamMembers.map((member) => (
           <a
             key={member.name}
@@ -34,8 +33,6 @@ const Footer = () => {
           </a>
         ))}
       </div>
-
-      <p>&copy; {currentYear} PR Status Board. All rights reserved.</p>
     </footer>
   );
 };

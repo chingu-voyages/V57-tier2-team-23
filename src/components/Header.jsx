@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/PR_logo.png";
 
 const Header = () => {
   const handleReturnHome = () => {
@@ -14,7 +14,7 @@ const Header = () => {
   });
 
   return (
-    <header className="w-full h-20 p-4 bg-gray-700 text-white flex justify-center items-center">
+    <header className="w-full h-20 p-4 text-white flex justify-center items-center bg-gray-600">
       <div className="absolute left-4 flex flex-row items-center cursor-pointer">
         <img src={Logo} alt="Logo" className="h-8 mr-4" />
         <h1 className="text-2xl font-bold" onClick={handleReturnHome}>PR Status Board</h1>
