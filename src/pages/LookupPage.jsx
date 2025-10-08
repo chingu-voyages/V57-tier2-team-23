@@ -96,7 +96,10 @@ const LookupPage = () => {
       try {
         const data = JSON.parse(e.target?.result);
         if (data.prs && Array.isArray(data.prs)) {
+          const uploadRepoOwner = data.prs[0]?.base?.repo?.owner?.login || "";
+          const uploadRepoName = data.prs[0]?.base?.repo?.name || "";
           setPrData(data.prs);
+          setRepo({ owner: `${uploadRepoOwner}`, repo: `${uploadRepoName}` });
           toast.success("Data Loaded Successfully!");
         } else {
           throw new Error("Invalid JSON format");
