@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
 import PRCard from "./PrCard";
 
 export default function PRTabs({ openPRs, closedPRs }) {
+  const [openPage, setOpenPage] = useState(1);
+  const [closedPage, setClosedPage] = useState(1);
+  const itemsPerPage = 6;
+
+  const totalPagesOpen = Math.ceil(openPRs.length / itemsPerPage);
+  const displayedOpenPRs = openPRs.slice((openPage - 1) * itemsPerPage, openPage * itemsPerPage);
+  const totalPagesClosed = Math.ceil(closedPRs.length / itemsPerPage);
+  const displayedClosedPRs = closedPRs.slice((closedPage - 1) * itemsPerPage, closedPage * itemsPerPage);
+
   return (
       <Tabs defaultValue="open" className="w-full">
         <div className="flex flex-col items-start">
@@ -40,35 +50,47 @@ export default function PRTabs({ openPRs, closedPRs }) {
         {/* Open PRs */}
         <TabsContent value="open" className="grid gap-4 lg:grid-cols-2">
 
-          { openPRs.length > 0 ? (
-            openPRs.map((pr) => {
+          { displayedOpenPRs.length > 0 ? (
+            displayedOpenPRs.map((pr) => {
               return <PRCard
                 key={pr.id}
                 pr={pr}
-                // repo={repo}
               />
             })
           ) : (
             <p className="text-center text-gray-500 col-span-full">No open PRs</p>
           )
           }
+          {totalPagesOpen > 1 && (
+            <div className="flex justify-center mt-4 col-span-full">
+              <Button onClick={() => setOpenPage(Math.max(1, openPage - 1))} disabled={openPage === 1}>Prev</Button>
+              <span className="mx-4">{openPage} / {totalPagesOpen}</span>
+              <Button onClick={() => setOpenPage(Math.min(totalPagesOpen, openPage + 1))} disabled={openPage === totalPagesOpen}>Next</Button>
+            </div>
+          )}
         </TabsContent>
 
         {/* Closed PRs */}
         <TabsContent value="closed" className="grid gap-4 lg:grid-cols-2">
 
-          { closedPRs.length > 0 ? (
-            closedPRs.map((pr) => {
+          { displayedClosedPRs.length > 0 ? (
+            displayedClosedPRs.map((pr) => {
               return <PRCard
                 key={pr.id}
                 pr={pr}
-                // repo={repo}
               />
             })
           ) : (
             <p className="text-center text-gray-500 col-span-full">No closed PRs</p>
           )
           }
+          {totalPagesClosed > 1 && (
+            <div className="flex justify-center mt-4 col-span-full">
+              <Button onClick={() => setClosedPage(Math.max(1, closedPage - 1))} disabled={closedPage === 1}>Prev</Button>
+              <span className="mx-4">{closedPage} / {totalPagesClosed}</span>
+              <Button onClick={() => setClosedPage(Math.min(totalPagesClosed, closedPage + 1))} disabled={closedPage === totalPagesClosed}>Next</Button>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
   );
