@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Download, RefreshCw, Upload } from "lucide-react";
-import PrCard from "../components/PrCard";
+import PRCard from "../components/PrCard";
+import PRTabs from "@/components/PRTabs";
 
 const LookupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -121,7 +122,7 @@ const LookupPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex max-w-6xl mx-auto py-8">
+    <div className="min-h-screen w-full max-w-6xl mx-auto py-8">
       <div className="space-y-4 w-full">
         {/* Form for Repo Owner and Name Input */}
         <form
@@ -177,14 +178,28 @@ const LookupPage = () => {
             onChange={loadDataFromJSON}
           />
         </div>
-        <div>
+
           {/* PR Cards Display */}
           {prData.map((pr) => (
-            <PrCard key={pr.id} pr={pr} repo={repo} />
+            <PRCard key={pr.id} pr={pr} repo={repo} />
           ))}
         </div>
+        <div className="mt-6">
+  <div className="mt-6">
+  <h2 className="text-xl font-semibold mb-2">Pull Requests</h2>
+  <PRTabs
+    openPRs={[
+      { id: 1, title: "Sample PR Title 1", prNum: 12, owner: "John Doe", assignees: ["Jane Smith", "Bob Johnson"], lastAction: "Approved by Jane Smith" },
+      { id: 2, title: "Sample PR Title 2", prNum: 15, owner: "Alice Brown", assignees: ["Tom Lee", "Emma White"], lastAction: "Requested changes by Tom Lee" },
+    ]}
+    closedPRs={[
+      { id: 3, title: "Sample PR Title 3", prNum: 8, owner: "Mark Green", assignees: ["Lucy Black"], lastAction: "Merged by Lucy Black" },
+    ]}
+  />
+</div>
+
+</div>
       </div>
-    </div>
   );
 };
 export default LookupPage;

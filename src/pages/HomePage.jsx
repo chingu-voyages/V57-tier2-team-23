@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import HomeImage from "../assets/images/home_image.png";
 import { Link } from "react-router";
 import GitHubLogo from "../assets/images/github.png";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const handleGetStarted = () => {
+    navigate("/lookup"); 
+  };
   const handleRepoLink = () => {
     window.open("https://github.com/chingu-voyages/V57-tier2-team-23", "_blank");
   }
@@ -20,11 +25,9 @@ const HomePage = () => {
         </p>
 
         <div className="w-full flex justify-center">
-          <Link to="/lookup">
-            <Button className="bg-green-500 hover:cursor-pointer w-40">
-              Get Started!
-            </Button>
-          </Link>
+          <Button className="bg-green-500 hover:cursor-pointer w-40" onClick={handleGetStarted}>
+            Get Started!
+          </Button>
         </div>
 
         <div className="w-full h-20 mt-5 mb-5 flex justify-center items-center">
