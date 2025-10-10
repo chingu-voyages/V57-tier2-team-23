@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div className="h-screen flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow">
         <Header />
         <HomePage />
         <Footer />
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/lookup",
     element: (
-      <div className="h-screen flex flex-col">
+      <div className="flex flex-col">
         <Toaster />
         <Header />
         <LookupPage />
