@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div className="h-screen flex flex-col overflow-y-hidden">
+      <div className="h-screen flex flex-col flex-grow">
         <Header />
         <HomePage />
         <Footer />
