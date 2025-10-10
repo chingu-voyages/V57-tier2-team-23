@@ -65,7 +65,7 @@ export default function PRTabs({ openPRs = [], closedPRs = [] }) {
           )}
         </TabsContent>
 
-        /* Closed PRs */
+        {/* Closed PRs */}
         <TabsContent value="closed" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {closedPRs.length > 0 ? (
             closedPRs.map((pr) => (
