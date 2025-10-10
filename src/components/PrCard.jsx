@@ -49,23 +49,38 @@ const PRCard = ({ pr, repo }) => {
 
     }
 
-  }, [pr.number]);
+  }, [pr, pr.number]);
 
   // Function to get the last person to act on the PR
   const getLastPersonToAct = (eventsData) => {
-    if (!eventsData || eventsData.length === 0) return null;
+    if (!eventsData || eventsData.length === 0) return `someone`;
 
     const lastEvent = eventData[0]?.data?.at(-1)
-    if (!lastEvent) return null;
+    if (!lastEvent) return;
 
     const person = lastEvent.actor || lastEvent.user || lastEvent.author
-    return person?.login || null;
+    return person?.login || person?.name;
   }
-  const lastPersonToAct = getLastPersonToAct(eventData);
-
+  
   // Get last event in timeline and its date
-  const lastEvent = eventData.length > 0 ? eventData.at(0).data.at(-1).event : null
-  const lastEventDate = eventData.length > 0 ? eventData.at(0).data.at(-1).created_at : null
+  const getLastEvent = (eventsData) => {
+    if (!eventsData || eventsData.length === 0) return `Something happened`;
+    if (eventsData.at(0).data.at(-1).event === "head_ref_deleted") return `Branch deleted`;
+    return eventsData[0]?.data?.at(-1)?.event;
+  }
+
+  const getLastEventDate = (eventsData) => {
+    if (!eventsData || eventsData.length === 0) return;
+    if (!eventsData.at(0).data.at(-1).created_at) {
+      return eventsData[0]?.data?.at(-1)?.author.date
+    }
+    return eventsData[0]?.data?.at(-1)?.created_at;
+  }
+
+
+  const lastPersonToAct = getLastPersonToAct(eventData);
+  const lastEvent = getLastEvent(eventData)
+  const lastEventDate = getLastEventDate(eventData)
 
   return (
     <Card className="w-full p-4 mb-4 shadow-lg border border-gray-200 rounded-lg">
