@@ -9,12 +9,14 @@ export default function PRTabs({ openPRs = [], closedPRs = [] }) {
 
   const filteredOpenPRs = openPRs.filter(pr => 
     pr.title.toLowerCase().includes(search.toLowerCase()) ||
-    pr.user?.login?.toLowerCase().includes(search.toLowerCase())
+    pr.user?.login?.toLowerCase().includes(search.toLowerCase()) ||
+    pr.number?.toString().includes(search.toLowerCase())
   )
 
   const filteredClosedPRs = closedPRs.filter(pr => 
     pr.title.toLowerCase().includes(search.toLowerCase()) ||
-    pr.user?.login?.toLowerCase().includes(search.toLowerCase())
+    pr.user?.login?.toLowerCase().includes(search.toLowerCase()) ||
+    pr.number?.toString().includes(search.toLowerCase())
   )
 
 
@@ -56,7 +58,7 @@ export default function PRTabs({ openPRs = [], closedPRs = [] }) {
           className="flex flex-col space-y-3"
         >
           {filteredOpenPRs.length === 0 ? (
-            <span className="text-gray-500">No open PRs found</span>
+            <span className="text-gray-500">No PRs found matching search query...</span>
           ) : (
             filteredOpenPRs.map((pr) => (
               <Card
@@ -85,7 +87,7 @@ export default function PRTabs({ openPRs = [], closedPRs = [] }) {
           className="flex flex-col space-y-3"
         >
           {filteredClosedPRs.length === 0 ? (
-            <span className="text-gray-500">No closed PRs found</span>
+            <span className="text-gray-500">No PRs found matching search query...</span>
           ) : (
             filteredClosedPRs.map((pr) => (
               <Card
