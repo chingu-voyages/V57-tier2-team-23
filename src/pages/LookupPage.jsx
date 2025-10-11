@@ -1,10 +1,9 @@
-import React, { useState, useRef } from "react";
-import GitHubLogo from "../assets/images/github.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { toast } from "sonner";
 import { Download, RefreshCw, Upload } from "lucide-react";
-import PRCard from "../components/PrCard";
+import { useRef, useState } from "react";
+import { toast } from "sonner";
+import GitHubLogo from "../assets/images/github.png";
 import PRTabs from "../components/PRtabs";
 
 const LookupPage = () => {
@@ -14,7 +13,7 @@ const LookupPage = () => {
 
   const fileInputRef = useRef(null);
 
-  const openPRs = prData.filter((pr) => pr.state === "open")
+  const openPRs = prData.filter((pr) => pr.state === "open");
   const closedPRs = prData.filter((pr) => pr.state === "closed");
 
   // Handles Fetching PR Data from GitHub API when clicked
@@ -31,10 +30,22 @@ const LookupPage = () => {
     try {
       const [openPRs, closedPRs] = await Promise.all([
         fetch(
-          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=open`
+          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=open`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_GH_TOKEN}`,
+              Accept: "application/vnd.github.v3+json",
+            },
+          }
         ),
         fetch(
-          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=closed`
+          `https://api.github.com/repos/${repo.owner}/${repo.repo}/pulls?state=closed`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_GH_TOKEN}`,
+              Accept: "application/vnd.github.v3+json",
+            },
+          }
         ),
       ]);
 
@@ -48,7 +59,6 @@ const LookupPage = () => {
       setPrData([...openPRsData, ...closedPRsData]);
 
       toast.success("PRs fetched successfully!");
-
     } catch (error) {
       console.error("Error fetching PRs:", error);
       toast.error("An error occurred while fetching PRs.");
@@ -115,7 +125,6 @@ const LookupPage = () => {
     e.target.value = "";
   };
 
-  
   // Triggers the hidden file input click
   const triggerFileInput = () => {
     fileInputRef.current?.click();
@@ -181,10 +190,7 @@ const LookupPage = () => {
 
         {/* PR Tabs Component */}
         <div>
-          <PRTabs
-            openPRs={prData.filter(pr => pr.state === 'open')}
-            closedPRs={prData.filter(pr => pr.state === 'closed')}
-          />
+          <PRTabs openPRs={openPRs} closedPRs={closedPRs} />
         </div>
       </div>
     </div>

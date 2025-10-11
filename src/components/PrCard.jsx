@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 
 const PRCard = ({ pr, repo }) => {
-  const token = "" // Add your GitHub token here
   const [eventData, setEventData] = useState([])
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const PRCard = ({ pr, repo }) => {
       try {
         const response = await fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}/issues/${pr.number}/timeline`, {
             headers: {
-              Authorization: `Bearer ${token}`,
+              Authorization: `Bearer ${import.meta.env.VITE_GH_TOKEN}`,
               Accept: "application/vnd.github.v3+json"
           }
         }
