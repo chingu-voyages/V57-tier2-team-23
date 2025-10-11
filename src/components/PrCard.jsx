@@ -15,7 +15,7 @@ import {
   CheckCheck,
 } from "lucide-react";
 
-const PRCard = ({ pr, repo }) => {
+const PRCard = ({ pr }) => {
   const [eventData, setEventData] = useState([])
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const PRCard = ({ pr, repo }) => {
 
       const fetchTimelineEvent = async () => {
       try {
-        const response = await fetch(`https://api.github.com/repos/${repo.owner}/${repo.repo}/issues/${pr.number}/timeline`, {
+        const response = await fetch(`https://api.github.com/repos/${pr.head.repo.full_name}/issues/${pr.number}/timeline`, {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_GH_TOKEN}`,
               Accept: "application/vnd.github.v3+json"
@@ -37,6 +37,7 @@ const PRCard = ({ pr, repo }) => {
         }
 
         const data = await response.json()
+        console.log(data)
 
         setEventData((prev) => [...prev, {pr: pr.number, data: data}])
 
