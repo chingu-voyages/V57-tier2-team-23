@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import HomeImage from "../assets/images/home_image.png";
-import { Link } from "react-router";
 import GitHubLogo from "../assets/images/github.png";
 
 const HomePage = () => {
