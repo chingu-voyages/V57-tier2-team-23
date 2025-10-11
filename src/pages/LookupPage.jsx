@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import GitHubLogo from "../assets/images/github.png";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Download, RefreshCw, Upload } from "lucide-react";
+import PRCard from "../components/PrCard";
 import PRTabs from "../components/PRtabs";
 
 const LookupPage = () => {
@@ -11,7 +12,7 @@ const LookupPage = () => {
   const [repo, setRepo] = useState({ owner: "", repo: "" });
   const [prData, setPrData] = useState([]);
 
-  const fileInputRef = React.useRef(null);
+  const fileInputRef = useRef(null);
 
   const openPRs = prData.filter((pr) => pr.state === "open")
   const closedPRs = prData.filter((pr) => pr.state === "closed");

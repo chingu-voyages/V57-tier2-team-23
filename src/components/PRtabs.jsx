@@ -8,12 +8,26 @@ import PRCard from "./PrCard";
 export default function PRTabs({ openPRs, closedPRs }) {
   const [openPage, setOpenPage] = useState(1);
   const [closedPage, setClosedPage] = useState(1);
+  const [search, setSearch] = React.useState("")
   const itemsPerPage = 6;
 
   const totalPagesOpen = Math.ceil(openPRs.length / itemsPerPage);
   const displayedOpenPRs = openPRs.slice((openPage - 1) * itemsPerPage, openPage * itemsPerPage);
   const totalPagesClosed = Math.ceil(closedPRs.length / itemsPerPage);
   const displayedClosedPRs = closedPRs.slice((closedPage - 1) * itemsPerPage, closedPage * itemsPerPage);
+
+
+  const filteredOpenPRs = openPRs.filter(pr => 
+    pr.title.toLowerCase().includes(search.toLowerCase()) ||
+    pr.user?.login?.toLowerCase().includes(search.toLowerCase()) ||
+    pr.number?.toString().includes(search.toLowerCase())
+  )
+
+  const filteredClosedPRs = closedPRs.filter(pr => 
+    pr.title.toLowerCase().includes(search.toLowerCase()) ||
+    pr.user?.login?.toLowerCase().includes(search.toLowerCase()) ||
+    pr.number?.toString().includes(search.toLowerCase())
+  )
 
   return (
       <Tabs defaultValue="open" className="w-full">
@@ -41,7 +55,9 @@ export default function PRTabs({ openPRs, closedPRs }) {
           <div className="relative w-[50%] mb-6">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4" />
             <Input
-              placeholder="Search PR"
+              placeholder="Search PRs"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
               className="pl-9 pr-4 py-2 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -49,6 +65,34 @@ export default function PRTabs({ openPRs, closedPRs }) {
 
         {/* Open PRs */}
         <TabsContent value="open" className="grid gap-4 lg:grid-cols-2">
+
+          {filteredOpenPRs.length === 0 ? (
+            <span className="text-gray-500">No PRs found matching search query...</span>
+          ) : (
+            filteredOpenPRs.map((pr) => (
+              <PRCard
+                key={pr.id}
+                pr={pr}
+              />
+              // <Card
+              //   key={pr.id}
+              //   className="hover:shadow-md border border-gray-200 transition-transform transform hover:-translate-y-1 rounded-xl"
+              // >
+              //   <CardHeader>
+              //     <CardTitle className="text-base font-semibold truncate">
+              //       #{pr.prNum} — {pr.title}
+              //     </CardTitle>
+              //   </CardHeader>
+              //   <CardContent>
+              //     <p className="text-sm text-gray-600">By {pr.owner}</p>
+              //     <p className="text-sm text-gray-600">
+              //       Assignees: {pr.assignees.join(", ")}
+              //     </p>
+              //     <p className="text-sm text-gray-500 mt-1">{pr.lastAction}</p>
+              //   </CardContent>
+              // </Card>
+            ))
+          )}
 
           { displayedOpenPRs.length > 0 ? (
             displayedOpenPRs.map((pr) => {
@@ -73,6 +117,34 @@ export default function PRTabs({ openPRs, closedPRs }) {
         {/* Closed PRs */}
         <TabsContent value="closed" className="grid gap-4 lg:grid-cols-2">
 
+          {filteredClosedPRs.length === 0 ? (
+            <span className="text-gray-500">No PRs found matching search query...</span>
+          ) : (
+            filteredClosedPRs.map((pr) => (
+              <PRCard
+                key={pr.id}
+                pr={pr}
+              />
+              // <Card
+              //   key={pr.id}
+              //   className="hover:shadow-md border border-gray-200 transition-transform transform hover:-translate-y-1 rounded-xl"
+              // >
+              //   <CardHeader>
+              //     <CardTitle className="text-base font-semibold truncate">
+              //       #{pr.prNum} — {pr.title}
+              //     </CardTitle>
+              //   </CardHeader>
+              //   <CardContent>
+              //     <p className="text-sm text-gray-600">By {pr.owner}</p>
+              //     <p className="text-sm text-gray-600">
+              //       Assignees: {pr.assignees.join(", ")}
+              //     </p>
+              //     <p className="text-sm text-gray-500 mt-1">{pr.lastAction}</p>
+              //   </CardContent>
+              // </Card>
+            ))
+          )}
+
           { displayedClosedPRs.length > 0 ? (
             displayedClosedPRs.map((pr) => {
               return <PRCard
@@ -93,5 +165,5 @@ export default function PRTabs({ openPRs, closedPRs }) {
           )}
         </TabsContent>
       </Tabs>
-  );
+  )
 }
