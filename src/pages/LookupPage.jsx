@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Download, RefreshCw, Upload } from "lucide-react";
 import PRCard from "../components/PrCard";
-import PRTabs from "@/components/PRTabs";
+import PRTabs from "../components/PRtabs";
 
 const LookupPage = () => {
   const [isLoading, setIsLoading] = useState(false);
