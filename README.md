@@ -1,38 +1,66 @@
-# voyage-tasks
+# ⚛️ PR Status Board
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## 🧭 Overview
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+The **PR Status Board** is a web application built with **React** and **Vite** that helps developers and agile teams easily track open and closed Pull Requests in GitHub repositories.  
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+By connecting to the **GitHub API**, users can search any public repository and view key PR data — all displayed through a clean, responsive, and intuitive interface.  
 
-> Own it & Make it your Own!
+This project was developed during **Chingu Voyage 57**, a collaborative learning experience that simulates building a real-world SaaS product within an agile workflow.
 
-## Team Documents
+---
 
-You may find these helpful as you work together to organize your project.
+## ✨ Features
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+- **GitHub API Integration** – Fetches real-time Pull Request data from public repositories.  
+- **Search Functionality** – Search for PRs by number, title, or other identifying details.  
+- **Responsive Design** – Optimized for use on desktop, tablet, and mobile devices.  
+- **Intuitive Interface** – Designed for clarity and fast navigation to support quick decision-making.  
+- **Collaboration Focused** – Built by a distributed team following agile principles.
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+---
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+## 🚀 Live Demo
 
-## Our Team
+🔗 [https://prstatusboard.netlify.app/](https://prstatusboard.netlify.app/)
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
+---
+
+## 🖼️ Screenshot
+
+![PR Status Board Screenshot](https://github.com/user-attachments/assets/2cd25ba0-21be-41b1-9aa8-90454cef051a)  
+
+---
+
+## 🛠️ Getting Started
+
+Follow these steps to run the project locally:
+
+# 1. Clone the repository
+git clone https://github.com/chingu-voyages/V57-tier2-team-23.git
+cd V57-tier2-team-23
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
+npm run dev
+
+# 4. Open in your browser
+Follow the URL shown in your terminal.
+
+---
+
+## 🧩 Tech Stack
+
+- **React** – Component-based UI development  
+- **Vite** – Fast build tool and development environment  
+- **React Router** – For routing between app views  
+- **Tailwind CSS + ShadCN/UI** – Modern, utility-first styling with prebuilt components  
+- **GitHub API** – Source of live Pull Request data
+
+---
+## 🤝 Our Team!
 
 - Zephyr Koryami (Sokuen Ryan) [GitHub](https://github.com/sokuenryan) / [LinkedIn](https://linkedin.com/in/sokuenryan)
 - Koby Sysouvanh: [GitHub](https://github.com/kobysysouvanh) / [LinkedIn](https://www.linkedin.com/in/kobysysouvanh/)
